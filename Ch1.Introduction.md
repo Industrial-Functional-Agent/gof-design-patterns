@@ -36,3 +36,35 @@
 **The design patterns in this book are descriptions of communicating objects and classes that are customized to solve a general design problem in a particular context.**
 
 이 책에서 디자인 패턴에 대한 예제를 작성할 때 사용하는 언어는 C++과 SmallTalk이다. 언어 선택이 중요한 이유는 같은 패턴이라도 언어에서 제공하는 기능에 따라 구현이 어려운 정도가 다르기 때문이다. 만약 절차 지향적인 언어를 골랐으면 encapsulation, polymorphism과 같은 단어 자체가  하나의 패턴이 됐을 수도 있다.
+
+
+## Organizing the Catalogs
+이 책에서는 디자인 패턴을 두 축으로 구분한다.
+
+- purpose - 패턴이 어떤 일을 하는지.
+    - creational - 객체 생성과 관련된 패턴.
+    - structural - 객체를 조합하는 방법과 관련된 패턴.
+    - behavioral - 객체의 책임과 객체 사이의 상호작용을 정의하는 패턴.
+- scope - class에 적용되는지, object에 적용되는지.
+    - class pattern - 부모와 자식 클래스 사이의 관계에 대한 패턴. compile time에 static하게 결정된다.
+    - object pattern - 객체 사이의 관계에 대한 패턴. run-time에 dynamic 하게 변경될 수 있다.
+
+→ 총 6개의 카테고리가 생성된다.
+
+> Creational class patterns defer some part of object creation to subclasses, while Creational object patterns defer it to another object. The Structural class patterns use inheritance to compose classes, while the Structural object patterns describe ways to assemble objects. The Behavioral class patterns use inheritance to describe algorithms and flow of control, whereas the Behavioral object patterns describe how a group of objects cooperate to perform a task that no single object can carry out alone.
+
+## How Design Patterns Solve Design Problems
+### Finding Appropriate Objects
+
+* 객체: 데이터 + 메소드
+* 메소드: 객체가 가지고 있는 데이터를 다루는 절차
+* 클라이언트: 이 객체를 사용하는 다른 객체
+* 메세지: 클라이언트가 다른 객체에게 메소드를 특정 인자와 함께 실행시켜 달라고 하는 요청
+
+객체지향 설계에서 어려운 점은 시스템을 어떤 객체들로 나눌지를 결정하는 일이다. 이 선택에는 encapsulation, granularity, dependency, flexibility, performance, evolution, reusability 등의 수많은 기준이 관여하는데, 각각의 기준이 종종 상충하기 때문이다.
+
+보통 현실 세계를 그대로 반영하는 방식으로 객체를 설계하는데,  이러한 방식은 오늘의 현실에는 잘 들어 맞지만 내일의 현실에 대해서는 그렇지 않을 가능성이 높다. 그래서 많은 객체지향 설계는 종종 현실에는 존재하지 않는 객체를 포함하게 된다. 이런 추상이 설계를 유연하게 만드는 핵심이다.
+
+> Strict modeling of the real world leads to a system that reflects today's realities but not necessarily tomorrow's.
+
+디자인 패턴은 바로 이런 덜 자명하고 덜 명확한 객체와 추상을 드러나게 도와준다.
